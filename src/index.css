@@ -1,0 +1,24 @@
+.formRegister,
+.formLogin,
+.formEvent {
+  margin-top: 40px;
+  border: 2px solid rgb(13, 202, 238);
+  padding-top: 40px;
+  border-radius: 25px;
+}
+.form-control {
+  margin-bottom: 20px;
+}
+.error {
+  color: red;
+}
+.buttonBar {
+  justify-content: right;
+}
+.eventButton {
+  margin-right: 10px;
+}
+.cardEvent {
+  background-color: rgb(126, 221, 240);
+  padding: 20px;
+}
