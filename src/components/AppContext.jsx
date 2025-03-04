@@ -3,7 +3,14 @@ import { createContext, useState, useContext } from "react";
 const AppContext = createContext();
 
 export function ContextProvider({ children }) {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([
+    {
+      firstName: "Ludovic",
+      lastName: "Muller",
+      email: "lo@lo.com",
+      password: "loooPolou15S#",
+    },
+  ]);
   const [userName, setUserName] = useState("");
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [events, setEvents] = useState([

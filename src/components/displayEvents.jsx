@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useVariable } from "./AppContext.jsx";
 import { Button, Card } from "react-bootstrap";
-import EventForm from "./eventForm.jsx"; // Updated name
+import EventForm from "./eventForm.jsx";
 
 export default function DisplayEvents() {
   const { events, setEvents, showCreateForm, setShowCreateForm } =
@@ -12,22 +12,21 @@ export default function DisplayEvents() {
     <div className="eventCard row">
       <Button
         variant="success"
-        className="my-3"
+        className="addEventBtn"
         onClick={() => setShowCreateForm(true)}
       >
         + Add Event
       </Button>
 
-      {showCreateForm && (
+      {showCreateForm ? (
         <EventForm
           setEvents={setEvents}
           events={events}
           setEditingEvent={setShowCreateForm}
         />
-      )}
+      ) : null}
 
       {events.length === 0 ? <p>No event</p> : null}
-
       {events.map((event, index) => (
         <div className="col-md-4" key={index}>
           <Card className="cardEvent">
@@ -57,16 +56,14 @@ export default function DisplayEvents() {
           </Card>
         </div>
       ))}
-
-      {/* Conditionally render the edit form */}
-      {editingEvent && (
+      {editingEvent ? (
         <EventForm
           event={editingEvent}
           setEditingEvent={setEditingEvent}
           setEvents={setEvents}
           events={events}
         />
-      )}
+      ) : null}
     </div>
   );
 }

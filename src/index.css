@@ -1,6 +1,7 @@
 .formRegister,
 .formLogin,
-.formEvent {
+.formEvent,
+.helpGuide {
   margin-top: 40px;
   border: 2px solid rgb(13, 202, 238);
   padding-top: 40px;
@@ -19,6 +20,21 @@
   margin-right: 10px;
 }
 .cardEvent {
-  background-color: rgb(126, 221, 240);
+  background-color: rgb(204, 244, 252);
+  box-shadow: 5px 5px 10px rgb(153, 233, 250);
   padding: 20px;
+}
+
+.addEventBtn {
+  width: 60%;
+  margin: 20px 20% 20px 20%;
+}
+.welcomeCard {
+  justify-content: "center";
+  background-color: rgb(204, 244, 252);
+  box-shadow: 5px 5px 10px rgb(153, 233, 250);
+}
+
+.helpGuide {
+  padding: 5% 10%;
 }

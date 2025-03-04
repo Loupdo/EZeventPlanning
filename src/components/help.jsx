@@ -4,9 +4,9 @@ export default function Help() {
   return (
     <div className="container">
       <NavBar />
-      <div className="m-4">
-        <h2>Help & User Guide</h2>
-        <p>
+      <div className="helpGuide m-4 d-flex flex-column">
+        <h2 className="mb-5">Help & User Guide</h2>
+        <p className="fs-5 mb-5">
           Welcome to EZ Event Planning! Here's how to navigate and use our
           platform:
         </p>
@@ -25,7 +25,7 @@ export default function Help() {
 
         <h4> Creating an Event</h4>
         <p>
-          After logging in, go to the "Events" page and click "Create Event".
+          After logging in, go to the "Events" page and click " + Add Event".
           Fill in the details and save.
         </p>
 
@@ -35,7 +35,7 @@ export default function Help() {
           details or "Delete" to remove it.
         </p>
 
-        <h4> Event Planning Tips</h4>
+        <h4 className="mt-4"> Event Planning Tips</h4>
         <ul>
           <li>Plan early and send invitations in advance.</li>
           <li>Set a clear agenda and keep track of RSVPs.</li>

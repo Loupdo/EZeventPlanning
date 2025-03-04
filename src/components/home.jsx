@@ -2,10 +2,10 @@ import NavBar from "../routes/NavBar";
 
 import SigninForm from "./sign-in";
 import { useVariable } from "./AppContext";
+import Dashboard from "./dashboard";
 
 export default function Home() {
   const { userName } = useVariable();
-  console.log(userName);
   if (userName === "") {
     return (
       <div className="container">
@@ -14,11 +14,10 @@ export default function Home() {
       </div>
     );
   } else {
-    console.log("dashboard");
     return (
       <div className="container">
         <NavBar />
-        <div>"hello"</div>
+        <Dashboard />
       </div>
     );
   }
