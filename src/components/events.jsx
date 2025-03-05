@@ -2,11 +2,11 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // import components
-import DisplayEvents from "./displayEvents";
+import DisplayEvents from "../event handling/displayEvents";
 import NavBar from "../routes/NavBar";
 
 // import context
-import { useVariable } from "./AppContext";
+import { useVariable } from "../Context/AppContext";
 
 export default function Events() {
   const { userName } = useVariable();

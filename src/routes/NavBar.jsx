@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
 //import Context
-import { useVariable } from "../components/AppContext";
+import { useVariable } from "../Context/AppContext";
 
 export default function NavBar() {
   const { userName } = useVariable();

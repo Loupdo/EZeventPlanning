@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 
 //import Context
-import { useVariable } from "./AppContext";
+import { useVariable } from "../Context/AppContext";
 
 // import components
 import NavBar from "../routes/NavBar";
-import SigninForm from "./sign-in";
-import Dashboard from "./dashboard";
+import SigninForm from "../profile/sign-in";
+import Dashboard from "../event handling/dashboard";
 
 export default function Home() {
   const { userName, setEvents } = useVariable();

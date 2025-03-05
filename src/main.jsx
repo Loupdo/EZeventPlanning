@@ -8,12 +8,12 @@ import "./index.css";
 
 // import components
 import Home from "./components/home";
-import Register from "./components/register";
+import Register from "./profile/register";
 import Events from "./components/events";
 import Help from "./components/help";
 
 //import Context
-import { ContextProvider } from "./components/AppContext";
+import { ContextProvider } from "./Context/AppContext";
 
 const router = createBrowserRouter([
   {
