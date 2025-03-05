@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
+//import Context
 import { useVariable } from "./AppContext.jsx";
 
 //library Yup and formik
@@ -21,9 +22,12 @@ export default function SigninForm() {
         .min(8, "Must contain at least 8 characters"),
     }),
     onSubmit: (values) => {
+      // get user in users by emai
       const user = users.find((user) => user.email === values.email);
       if (user) {
+        //if found
         if (user.password === values.password) {
+          //check password
           setUserName([user.firstName, user.email]);
         } else {
           formik.setFieldError("password", "Incorrect password");

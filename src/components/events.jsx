@@ -1,11 +1,16 @@
-import NavBar from "../routes/NavBar";
-import { useVariable } from "./AppContext";
-import DisplayEvents from "./displayEvents";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+// import components
+import DisplayEvents from "./displayEvents";
+import NavBar from "../routes/NavBar";
+
+// import context
+import { useVariable } from "./AppContext";
+
 export default function Events() {
   const { userName } = useVariable();
+  //if sign-in show Events
   if (userName.length !== 0) {
     return (
       <div className="container">
@@ -14,6 +19,7 @@ export default function Events() {
       </div>
     );
   } else {
+    //if not instruction and link to sign-in
     return (
       <div className="container">
         <NavBar />

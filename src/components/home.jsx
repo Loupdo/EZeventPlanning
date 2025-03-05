@@ -1,12 +1,16 @@
-import NavBar from "../routes/NavBar";
-
-import SigninForm from "./sign-in";
-import { useVariable } from "./AppContext";
-import Dashboard from "./dashboard";
 import { useEffect } from "react";
+
+//import Context
+import { useVariable } from "./AppContext";
+
+// import components
+import NavBar from "../routes/NavBar";
+import SigninForm from "./sign-in";
+import Dashboard from "./dashboard";
 
 export default function Home() {
   const { userName, setEvents } = useVariable();
+  // get events link to an email
   useEffect(() => {
     if (userName && userName.length === 2) {
       const storedEvents = localStorage.getItem(`events_${userName[1]}`);
@@ -17,6 +21,8 @@ export default function Home() {
       }
     }
   }, [userName]);
+
+  // if sign in show dashboard
   if (userName && userName.length === 2) {
     return (
       <div className="container">
@@ -25,6 +31,7 @@ export default function Home() {
       </div>
     );
   } else {
+    // else show the sign-in form
     return (
       <div className="container">
         <NavBar />

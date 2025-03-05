@@ -1,3 +1,4 @@
+// import components
 import NavBar from "../routes/NavBar";
 
 export default function Help() {

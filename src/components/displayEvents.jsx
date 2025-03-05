@@ -1,6 +1,10 @@
 import { useState } from "react";
-import { useVariable } from "./AppContext.jsx";
 import { Button, Card } from "react-bootstrap";
+
+// import context
+import { useVariable } from "./AppContext.jsx";
+
+// import components
 import EventForm from "./eventForm.jsx";
 
 export default function DisplayEvents() {
@@ -29,6 +33,7 @@ export default function DisplayEvents() {
       {!events || events.length === 0 ? (
         <p> You have no event plan use button: "+ Add Event" to add an event</p>
       ) : null}
+      {/* creat for each event a card */}
       {events.map((event, index) => (
         <div className="col-md-4" key={index}>
           <Card className="cardEvent">

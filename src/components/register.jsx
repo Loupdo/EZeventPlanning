@@ -1,12 +1,16 @@
-import * as Yup from "yup";
-import { useFormik } from "formik";
-
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
+// import components
 import NavBar from "../routes/NavBar.jsx";
-import { useEffect } from "react";
+
+//import Context
 import { useVariable } from "./AppContext.jsx";
+
+//library Yup and formik
+import * as Yup from "yup";
+import { useFormik } from "formik";
 
 export default function Register() {
   const { users, setUsers } = useVariable();

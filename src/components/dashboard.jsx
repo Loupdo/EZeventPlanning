@@ -1,9 +1,13 @@
 import { Button, Card } from "react-bootstrap";
-import { useVariable } from "./AppContext";
 import { Link } from "react-router-dom";
+
+//import Context
+import { useVariable } from "./AppContext";
 
 export default function Dashboard() {
   const { userName, events, setUserName } = useVariable();
+
+  // find the next event from today else return null(falsy)
   const nextevent = () => {
     const today = new Date();
     if (events && events.length > 0) {
@@ -15,6 +19,7 @@ export default function Dashboard() {
     }
     return null;
   };
+
   return (
     <div className=" d-flex mt-5 justify-content-center">
       <Card className="welcomeCard text-center p-5">

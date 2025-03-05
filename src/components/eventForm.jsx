@@ -1,7 +1,11 @@
+import { Button } from "react-bootstrap";
+
+//import Context
+import { useVariable } from "./AppContext.jsx";
+
+//library Yup and formik
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Button } from "react-bootstrap";
-import { useVariable } from "./AppContext.jsx";
 
 export default function EventForm({
   event = null,
@@ -32,14 +36,16 @@ export default function EventForm({
       } else {
         updatedEvents = [...events, values];
       }
+      // allow to sort events each time a form is submit
       updatedEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
 
+      // save events and save it to local storage
       setEvents(updatedEvents);
       localStorage.setItem(
         `events_${userName[1]}`,
         JSON.stringify(updatedEvents)
       );
-      formik.resetForm();
+      formik.resetForm(); //reset form
       if (isEditing) setEditingEvent(null);
     },
   });
@@ -130,8 +136,9 @@ export default function EventForm({
           </Button>
           <Button
             variant="secondary"
-            onClick={() =>
-              isEditing ? setEditingEvent(null) : setShowCreateForm(false)
+            onClick={
+              () =>
+                isEditing ? setEditingEvent(null) : setShowCreateForm(false) //close form
             }
             className="mx-2"
           >
