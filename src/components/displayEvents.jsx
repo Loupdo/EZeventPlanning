@@ -9,7 +9,7 @@ export default function DisplayEvents() {
   const [editingEvent, setEditingEvent] = useState(null);
 
   return (
-    <div className="eventCard row">
+    <div className="eventCard row gy-3">
       <Button
         variant="success"
         className="addEventBtn"
@@ -26,7 +26,9 @@ export default function DisplayEvents() {
         />
       ) : null}
 
-      {events.length === 0 ? <p>No event</p> : null}
+      {!events || events.length === 0 ? (
+        <p> You have no event plan use button: "+ Add Event" to add an event</p>
+      ) : null}
       {events.map((event, index) => (
         <div className="col-md-4" key={index}>
           <Card className="cardEvent">

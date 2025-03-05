@@ -7,27 +7,30 @@ import { useVariable } from "../components/AppContext";
 export default function NavBar() {
   const { userName } = useVariable();
   function greeting() {
-    return userName ? `Welcome, ${userName}` : "";
+    return userName.length > 0 ? `Welcome, ${userName[0]}` : "";
   }
 
   return (
-    <Navbar bg="info" data-bs-theme="light">
+    <Navbar bg="info" expand="lg" data-bs-theme="light" className="shadow-sm">
       <Container>
         <Navbar.Brand as={Link} to="/" className="shopLogo">
           EZ Event Planning
         </Navbar.Brand>
-        <Navbar.Text>{greeting()}</Navbar.Text>
-        <Nav>
-          <Nav.Link as={Link} to="/">
-            Home/login
-          </Nav.Link>
-          <Nav.Link as={Link} to="/events">
-            Events
-          </Nav.Link>
-          <Nav.Link as={Link} to="/help">
-            Help
-          </Nav.Link>
-        </Nav>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          <Navbar.Text className="ms-lg-3">{greeting()}</Navbar.Text>
+          <Nav className="ms-auto">
+            <Nav.Link as={Link} to="/">
+              Home/Login
+            </Nav.Link>
+            <Nav.Link as={Link} to="/events">
+              Events
+            </Nav.Link>
+            <Nav.Link as={Link} to="/help">
+              Help
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

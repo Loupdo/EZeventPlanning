@@ -10,7 +10,7 @@ export default function EventForm({
   events,
 }) {
   const isEditing = !!event;
-  const { setShowCreateForm } = useVariable();
+  const { setShowCreateForm, userName } = useVariable();
 
   const formik = useFormik({
     initialValues: {
@@ -25,13 +25,22 @@ export default function EventForm({
       date: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
+      let updatedEvents;
+
       if (isEditing) {
-        setEvents(events.map((e, i) => (i === event.index ? values : e)));
-        setEditingEvent(null);
+        updatedEvents = events.map((e, i) => (i === event.index ? values : e));
       } else {
-        setEvents([...events, values]);
+        updatedEvents = [...events, values];
       }
+      updatedEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+      setEvents(updatedEvents);
+      localStorage.setItem(
+        `events_${userName[1]}`,
+        JSON.stringify(updatedEvents)
+      );
       formik.resetForm();
+      if (isEditing) setEditingEvent(null);
     },
   });
 
@@ -101,8 +110,7 @@ export default function EventForm({
               value={formik.values.description}
             />
           </div>
-
-          <div className="form-group col-md-5 offset-1">
+          <div className="form-group col-md-5 offset-md-1">
             <label htmlFor="location">Location:</label>
             <input
               id="location"

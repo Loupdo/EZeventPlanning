@@ -21,16 +21,12 @@ export default function SigninForm() {
         .min(8, "Must contain at least 8 characters"),
     }),
     onSubmit: (values) => {
-      if (users.some((user) => user.email === values.email)) {
-        for (let user of users) {
-          if (
-            user.email === values.email &&
-            user.password === values.password
-          ) {
-            setUserName(user.firstName);
-          } else {
-            alert("Password is incorrect");
-          }
+      const user = users.find((user) => user.email === values.email);
+      if (user) {
+        if (user.password === values.password) {
+          setUserName([user.firstName, user.email]);
+        } else {
+          formik.setFieldError("password", "Incorrect password");
         }
       } else {
         alert("This account does not exist, please register");

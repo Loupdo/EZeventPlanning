@@ -2,10 +2,14 @@
 .formLogin,
 .formEvent,
 .helpGuide {
-  margin-top: 40px;
+  margin-top: 30px;
   border: 2px solid rgb(13, 202, 238);
-  padding-top: 40px;
+  padding: 40px 2% 10px;
   border-radius: 25px;
+}
+
+.formEvent {
+  margin-bottom: 30px;
 }
 .form-control {
   margin-bottom: 20px;
@@ -27,7 +31,7 @@
 
 .addEventBtn {
   width: 60%;
-  margin: 20px 20% 20px 20%;
+  margin: 20px 20% 10px 20%;
 }
 .welcomeCard {
   justify-content: "center";

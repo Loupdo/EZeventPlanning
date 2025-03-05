@@ -1,17 +1,19 @@
 import * as Yup from "yup";
 import { useFormik } from "formik";
-//allow access to users and total from context
-//import { useShop } from "../components/ShopContext.jsx";
-//import from React/react-bootstap/react-router-dom
+
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-//function from modules
-import NavBar from "../routes/NavBar.jsx";
 
+import NavBar from "../routes/NavBar.jsx";
+import { useEffect } from "react";
 import { useVariable } from "./AppContext.jsx";
 
 export default function Register() {
   const { users, setUsers } = useVariable();
+
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
 
   const navigate = useNavigate();
   const addUser = (newUser) => {
