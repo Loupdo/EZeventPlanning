@@ -30,7 +30,7 @@ export default function Dashboard() {
           You have {events?.length || "0"} incomming event(s)
         </Card.Subtitle>
         <Card.Text className="mb-4">
-          {nextevent
+          {nextevent()
             ? `Your next event: ${nextevent()}`
             : "You have no upcoming events."}
         </Card.Text>
